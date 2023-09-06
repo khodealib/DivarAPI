@@ -3,6 +3,7 @@ import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.routers.users import router as user_routers
 from config import DOCS
 
 __version__ = "0.1.0"
@@ -22,3 +23,5 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(user_routers, tags=['users'])
