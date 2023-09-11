@@ -10,7 +10,7 @@
 ```shell
 git clone https://github.com/khodealib/DivarAPI
 cd DivarAPI
-docker composer up -d --build
+docker compose up -d --build
 ```
 ## Manual
 ```shell

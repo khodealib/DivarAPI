@@ -13,3 +13,7 @@ UVICORN_SSL_KEYFILE = config("UVICORN_SSL_KEYFILE", default=None)
 
 DEBUG = config("DEBUG", default=False, cast=bool)
 DOCS = config("DOCS", default=False, cast=bool)
+
+SECRET_KEY = config("SECRET_KEY")
+ALGORITHM = config("ALGORITHM")
+ACCESS_TOKEN_EXPIRE_MINUTES = config("ACCESS_TOKEN_EXPIRE_MINUTES")
