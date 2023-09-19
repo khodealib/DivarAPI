@@ -8,10 +8,11 @@ from app.dependencies.db_session import get_db
 from app.models import users as models
 from app.schemas.tokens import Token
 from app.schemas.users import UserInDB, User
-from app.utils.auth import authenticate_user, get_password_hash, create_access_token, get_current_user
+from app.utils.auth import authenticate_user, get_password_hash, \
+    create_access_token, get_current_user
 from config import ACCESS_TOKEN_EXPIRE_MINUTES
 
-router = APIRouter()
+router = APIRouter(prefix='/auth', tags=['auth'])
 
 
 @router.post("/register", response_model=User)

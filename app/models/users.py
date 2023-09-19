@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy.orm import relationship
 
 from app.db.base import Base
 from app.models.base import TimestampMixin
@@ -7,7 +8,7 @@ from app.models.base import TimestampMixin
 class User(Base, TimestampMixin):
     __tablename__ = 'users'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     username = Column(String, unique=True, index=True)
     email = Column(String, unique=True, nullable=True)
     password = Column(String)
@@ -15,3 +16,5 @@ class User(Base, TimestampMixin):
     last_name = Column(String, nullable=True)
     is_active = Column(Boolean, default=True)
     is_admin = Column(Boolean, default=False)
+
+    advertisements = relationship("Advertisement", back_populates="user")
